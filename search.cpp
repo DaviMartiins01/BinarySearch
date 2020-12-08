@@ -2,7 +2,8 @@
 
 void InputNumber(void);
 
-int typedNumber;
+char typedNumber;
+
 
 int main()
 {
@@ -12,5 +13,5 @@ int main()
 void InputNumber(void)
 {
   printf("Typer a number \n>>> ");
-  scanf("%d", typedNumber);
+  scanf("%c", &typedNumber);
 }
