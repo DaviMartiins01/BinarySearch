@@ -4,7 +4,11 @@ void InputNumber(void);
 bool Search(void);
 
 const int N = 20;
+
 int listNumbers[N] = {8, 9, 11, 15, 23, 42, 53, 54, 64, 66, 67, 68, 69, 70, 82, 83, 84, 90, 91, 100};
+int beginList = 0;
+int finalList = N;
+int middle;
 
 bool loop = true;
 
@@ -13,9 +17,10 @@ char typedNumber;
 
 int main()
 {
+
+    InputNumber();
     do
     {
-        InputNumber();
         loop = Search();
 
     }while(loop);
@@ -31,22 +36,23 @@ void InputNumber(void)
 
 bool Search(void)
 {
-    printf("Typed Number: %d\n", typedNumber);
-    if(typedNumber == listNumbers[N/2])
+    middle = (beginList + finalList)/2;
+
+    if(typedNumber == listNumbers[middle])
     {
-        printf("You won!");
+        printf("found");
         return false;
     }
     else
     {
-        if(typedNumber > listNumbers[N/2])
+        if(typedNumber > listNumbers[middle])
         {
-            printf(">type a lowest Number\n");
+            beginList = middle;
             return true;
         }
         else
         {
-            printf(">type a highest number\n");
+            finalList = middle;
             return true;
         }
     }
