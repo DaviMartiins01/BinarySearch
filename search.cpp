@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void InputNumber(void);
+void PrintStepsSearch(void);
 bool Search(void);
 
 const int N = 20;
@@ -21,6 +22,7 @@ int main()
     InputNumber();
     do
     {
+        PrintStepsSearch();
         loop = Search();
 
     }while(loop);
@@ -58,4 +60,14 @@ bool Search(void)
     }
 
 
+}
+
+void PrintStepsSearch(void)
+{
+    for(int i = beginList; i < finalList; i++)
+    {
+        printf("%d ", listNumbers[i]);
+    }
+
+    printf("\n");
 }
