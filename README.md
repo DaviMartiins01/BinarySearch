@@ -1,3 +1,1 @@
-"# GitTest"
-
-I am testing the git.
+Binary Search in c programming.
