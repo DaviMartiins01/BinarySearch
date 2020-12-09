@@ -3,6 +3,7 @@
 void InputNumber(void);
 void PrintStepsSearch(void);
 bool Search(void);
+bool StopSearch(void);
 
 const int N = 20;
 
@@ -11,21 +12,19 @@ int beginList = 0;
 int finalList = N;
 int middle;
 
-bool loop = true;
+int ExitNumber = 0;
 
 char typedNumber;
 
 
 int main()
 {
-
     InputNumber();
     do
     {
         PrintStepsSearch();
-        loop = Search();
 
-    }while(loop);
+    }while(Search());
 
     return 0;
 }
@@ -42,11 +41,16 @@ bool Search(void)
 
     if(typedNumber == listNumbers[middle])
     {
-        printf("found");
+        printf("Found");
         return false;
     }
     else
     {
+        if(StopSearch())
+        {
+            printf("Not Found");
+            return false;
+        }
         if(typedNumber > listNumbers[middle])
         {
             beginList = middle;
@@ -59,7 +63,6 @@ bool Search(void)
         }
     }
 
-
 }
 
 void PrintStepsSearch(void)
@@ -70,4 +73,17 @@ void PrintStepsSearch(void)
     }
 
     printf("\n");
+}
+
+bool StopSearch(void)
+{
+    if(ExitNumber == middle)
+    {
+        return true;
+    }
+    else
+    {
+        ExitNumber = middle;
+        return false;
+    }
 }
